@@ -262,8 +262,8 @@ void setup() {
     int lastSundayMarch = 31 - ((5 * now.year() / 4 + 4) % 7);
     int lastSundayOctober = 31 - ((5 * now.year() / 4 + 1) % 7);
 
-    DateTime daylightSavingsStart(now.year(), 3, lastSundayMarch, 1, 0, 0);
-    DateTime daylightSavingsEnd(now.year(), 10, lastSundayOctober, 2, 0, 0);
+    DateTime daylightSavingsStart(now.year(), 3, lastSundayMarch, 0, 1, 0);
+    DateTime daylightSavingsEnd(now.year(), 10, lastSundayOctober - 1, 23, 0, 0);
 
     if (now > daylightSavingsStart && now < daylightSavingsEnd) {
       rtc.adjust(rtc.now() + TimeSpan(0, 1, 0, 0));
